@@ -1,10 +1,6 @@
-import { Button } from "@/components/ui/button";
+"use client";
+import { withPageAuthRequired } from '@auth0/nextjs-auth0/client';
 
-
-export default function Home() {
-  return (
-    <div>
-      <Button>Click me</Button>
-    </div>
-  );
-}
+export default withPageAuthRequired(function Profile(user) {
+  return <pre>{JSON.stringify(user, null, 2)}</pre>;
+});

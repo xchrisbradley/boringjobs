@@ -24,10 +24,17 @@ To integrate and test the OnChain JobBoard in your local environment, follow the
 
 2. Establish your local environment configuration by creating a `.env.local` file at the project's root. Alternatively, replicate the provided `.env.example` file. Your `.env.local` should include:
     ```bash
-    RPC_ENDPOINT='YOUR_RPC_ENDPOINT'
-    PRIVATE_KEY='YOUR_PRIVATE_KEY'
-    CHAIN_ID='YOUR_CHAIN_ID'
-    ETHERSCAN_API_KEY='YOUR_ETHERSCAN_API_KEY'
+    RPC_ENDPOINT=''
+    PRIVATE_KEY=''
+    CHAIN_ID=84532
+    ETHERSCAN_API_KEY=''
+    AUTH0_SECRET='Generate this with `openssl rand -base64 32`'
+    AUTH0_ISSUER_BASE_URL=''
+    AUTH0_BASE_URL='http://localhost:3000'
+    AUTH0_CLIENT_ID=''
+    AUTH0_CLIENT_SECRET=''
+    AUTH0_AUDIENCE=''
+    AUTH0_SCOPE=openid profile email offline_access
     ```
 
 ## Protocol Development Workflow
