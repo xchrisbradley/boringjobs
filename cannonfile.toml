@@ -1,0 +1,24 @@
+name = "greeter-foundry"
+version = "<%= package.version %>"
+description = "Simple project to verify the functionality of cannon"
+keywords = ["sample", "greeter"]
+
+[setting.value]
+defaultValue = "15"
+
+[setting.salt]
+defaultValue = "greeter"
+
+[setting.msg]
+defaultValue = "Hello world!"
+description="The greeting passed to the constructor"
+
+[contract.library]
+artifact = "Library"
+value = "2929372"
+
+[contract.greeter]
+artifact = "Greeter"
+args = ["<%= settings.msg %>"]
+libraries.Library = "<%= contracts.library.address %>"
+salt = "<%= settings.salt %>"
