@@ -1,7 +1,7 @@
-# OnChain JobBoard: A Decentralized Employment Solution
+# Boring Jobs: A Decentralized OnChain JobBoard
 
 ## Live Demonstration
-Explore our platform through the following URL: [OnChain JobBoard Demo](https://onchain-jobboard.vercel.app/)
+Explore our platform through the following URL: [Boring Jobs Demo](https://onchain-jobboard.vercel.app/)
 
 This interactive demo provides insights into the following functionalities: 
 
@@ -13,7 +13,7 @@ This interactive demo provides insights into the following functionalities:
 - Reward withdrawal system for participants.
 
 ## Initial Setup Instructions
-To integrate and test the OnChain JobBoard in your local environment, follow the steps below:
+To integrate and test the Boring Jobs in your local environment, follow the steps below:
 
 1. Clone the repository and install necessary dependencies:
     ```bash
