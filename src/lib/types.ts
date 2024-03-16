@@ -52,4 +52,18 @@ export type ContractDetails = {
 
 export type Result = string | bigint | undefined | null | Result[];
 
+export type UserOperation = {
+  sender: Address;
+  nonce: bigint;
+  initCode: Address;
+  callData: Address;
+  callGasLimit: bigint;
+  verificationGasLimit: bigint;
+  preVerificationGas: bigint;
+  maxFeePerGas: bigint;
+  maxPriorityFeePerGas: bigint;
+  paymasterAndData: Address;
+  signature: Address;
+};
+
 export * from "abitype";
