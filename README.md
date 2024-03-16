@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# OnChain JobBoard: A Decentralized Employment Solution
 
-## Getting Started
+## Live Demonstration
+Explore our platform through the following URL: OnChain JobBoard Demo
 
-First, run the development server:
+This interactive demo provides insights into the following functionalities: https://onchain-jobboard.vercel.app/
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- Secure authentication leveraging World ID.
+- Generation of Non-Fungible Token (NFT) Profiles for both Employers and Job Seekers, facilitating unique identity representation.
+- Initiation of Job Listings with innovative reward mechanisms: 50% allocated to the successful job applicant, and the remaining 50% distributed amongst all candidates post-hire.
+- Application submission for job vacancies.
+- Completion of recruitment processes with job fulfillment capabilities.
+- Reward withdrawal system for participants.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Initial Setup Instructions
+To integrate and test the OnChain JobBoard in your local environment, follow the steps below:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Clone the repository and install necessary dependencies:
+    ```bash
+    git clone https://github.com/xchrisbradley/onchain-jobboard.git
+    cd onchain-jobboard
+    pnpm install
+    ```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+2. Establish your local environment configuration by creating a `.env.local` file at the project's root. Alternatively, replicate the provided `.env.example` file. Your `.env.local` should include:
+    ```bash
+    RPC_ENDPOINT='YOUR_RPC_ENDPOINT'
+    PRIVATE_KEY='YOUR_PRIVATE_KEY'
+    CHAIN_ID='YOUR_CHAIN_ID'
+    ETHERSCAN_API_KEY='YOUR_ETHERSCAN_API_KEY'
+    ```
 
-## Learn More
+## Protocol Development Workflow
+Execute the following commands within your development environment to engage with the protocol:
 
-To learn more about Next.js, take a look at the following resources:
+- `pnpm protocol:test`: Execute tests to validate protocol integrity.
+- `pnpm protocol:build`: Compile the protocol to prepare for deployment.
+- `pnpm protocol:run`: Launch a local instance of the protocol for testing and development purposes.
+- `pnpm protocol:deploy`: Deploy the protocol onto the blockchain network.
+- `pnpm protocol:verify`: Verify the protocol implementation against blockchain network standards.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Frontend Development Workflow
+Execute the following commands within your development environment to engage with the frontend:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- `pnpm frontend:build`: Compile the frontend to prepare for deployment.
+- `pnpm frontend:run`: Launch a local instance of the frontend for testing and development purposes. **This command will also require the protocol to be running locally.**
