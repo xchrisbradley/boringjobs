@@ -1,9 +1,9 @@
 # OnChain JobBoard: A Decentralized Employment Solution
 
 ## Live Demonstration
-Explore our platform through the following URL: OnChain JobBoard Demo
+Explore our platform through the following URL: [OnChain JobBoard Demo](https://onchain-jobboard.vercel.app/)
 
-This interactive demo provides insights into the following functionalities: https://onchain-jobboard.vercel.app/
+This interactive demo provides insights into the following functionalities: 
 
 - Secure authentication leveraging World ID.
 - Generation of Non-Fungible Token (NFT) Profiles for both Employers and Job Seekers, facilitating unique identity representation.
