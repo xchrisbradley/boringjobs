@@ -1,5 +1,10 @@
 # Boring Jobs: A Decentralized OnChain JobBoard
 
+## Stack
+- **Protocol**: Solidity, Foundry, UseCannon
+- **Frontend**: React, Next.js, Tailwind CSS
+- **Authentication**: Auth0, World ID
+
 ## Live Demonstration
 Explore our platform through the following URL: [Boring Jobs Demo](https://onchain-jobboard.vercel.app/)
 
