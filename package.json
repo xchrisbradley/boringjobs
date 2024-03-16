@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "protocol:test": "forge test",
+    "protocol:build-cannonfile": "npx @usecannon/cli build cannonfile.toml && npx @usecannon/cli build cannonfile.consumer.toml",
+    "protocol:run": "npx @usecannon/cli greeter"
   },
   "dependencies": {
     "@radix-ui/react-icons": "^1.3.0",
