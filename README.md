@@ -36,6 +36,7 @@ To integrate and test the OnChain JobBoard in your local environment, follow the
     AUTH0_AUDIENCE=''
     AUTH0_SCOPE=openid profile email offline_access
     ```
+3. Setup Auth0 WorldID Connection: https://marketplace.auth0.com/integrations/worldcoin
 
 ## Protocol Development Workflow
 Execute the following commands within your development environment to engage with the protocol:
