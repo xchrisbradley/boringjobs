@@ -4,7 +4,7 @@
 
 - **Protocol**: Solidity, Foundry, UseCannon
 - **Frontend**: Viem, Wagmi, React, Next.js 14 + App Router, Tailwind CSS
-- **Authentication**: Auth0, World ID
+- **Authentication**: Auth0, World ID, Safe 4337
 
 ## Live Demonstration
 
