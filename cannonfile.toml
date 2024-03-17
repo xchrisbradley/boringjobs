@@ -1,24 +1,17 @@
-name = "greeter-foundry"
+name = "boringjobs"
 version = "<%= package.version %>"
-description = "Simple project to verify the functionality of cannon"
-keywords = ["sample", "greeter"]
+description = "On-Chain Decentralized Job Board"
+keywords = [
+  "boringjobs",
+  "job board",
+  "decentralized",
+  "ethereum",
+  "solidity",
+  "truffle",
+  "dapp",
+  "blockchain",
+  "smart contract",
+]
 
-[setting.value]
-defaultValue = "15"
-
-[setting.salt]
-defaultValue = "greeter"
-
-[setting.msg]
-defaultValue = "Hello world!"
-description="The greeting passed to the constructor"
-
-[contract.library]
-artifact = "Library"
-value = "2929372"
-
-[contract.greeter]
-artifact = "Greeter"
-args = ["<%= settings.msg %>"]
-libraries.Library = "<%= contracts.library.address %>"
-salt = "<%= settings.salt %>"
+[contract.JobBoard]
+artifact = "JobBoard"

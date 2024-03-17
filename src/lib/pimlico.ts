@@ -1,8 +1,9 @@
 import {
-  ENTRYPOINT_ADDRESS_V07,
   ENTRYPOINT_ADDRESS_V06,
   bundlerActions,
+  createSmartAccountClient,
 } from "permissionless";
+import { privateKeyToAccount } from "viem/accounts";
 import {
   pimlicoBundlerActions,
   pimlicoPaymasterActions,
@@ -11,8 +12,11 @@ import {
   createPimlicoBundlerClient,
   createPimlicoPaymasterClient,
 } from "permissionless/clients/pimlico";
-import { createClient, createPublicClient, http } from "viem";
+import { Address, createClient, createPublicClient, http } from "viem";
 import { baseSepolia, Chain, foundry } from "viem/chains";
+import { signerToSafeSmartAccount } from "permissionless/accounts";
+
+const debugPrivateKey: Address = `0x${process.env.PRIVATE_KEY}`;
 
 const fork = (chain: Chain) => ({
   ...chain,
@@ -55,4 +59,23 @@ export const paymasterClient = createPimlicoPaymasterClient({
   transport: paymasterTransport,
   entryPoint: ENTRYPOINT_ADDRESS_V06,
   chain: forkedChains[0],
+});
+
+export const signer = privateKeyToAccount(debugPrivateKey);
+
+export const safeAccount = await signerToSafeSmartAccount(publicClient, {
+  entryPoint: ENTRYPOINT_ADDRESS_V06,
+  signer,
+  safeVersion: "1.4.1",
+});
+
+export const smartAccountClient = createSmartAccountClient({
+  account: safeAccount,
+  entryPoint: ENTRYPOINT_ADDRESS_V06,
+  chain: publicClient.chain,
+  bundlerTransport: bundlerTransport,
+  middleware: {
+    gasPrice: async () => (await bundlerClient.getUserOperationGasPrice()).fast,
+    sponsorUserOperation: paymasterClient.sponsorUserOperation,
+  },
 });

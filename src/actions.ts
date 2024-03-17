@@ -1,38 +1,25 @@
 "use server";
 
-import { db } from "@/lib/db";
-import {
-  ENTRYPOINT_ADDRESS_V07,
-  createSmartAccountClient,
-} from "permissionless";
-import {
-  SimpleSmartAccount,
-  privateKeyToSimpleSmartAccount,
-} from "permissionless/accounts";
-import { sepolia, Chain, baseSepolia } from "viem/chains";
-import { publicClient } from "@/lib/pimlico";
-import { Session, getSession } from "@auth0/nextjs-auth0/edge";
-import { NextRequest, NextResponse } from "next/server";
+import { Address, getContract } from "viem";
+import { publicClient, smartAccountClient } from "@/lib/pimlico";
 
-import { bundlerActions, getAccountNonce } from "permissionless";
-import {
-  pimlicoBundlerActions,
-  pimlicoPaymasterActions,
-} from "permissionless/actions/pimlico";
-import {
-  Address,
-  Client,
-  Hash,
-  Hex,
-  PrivateKeyAccount,
-  createClient,
-  createPublicClient,
-  encodeFunctionData,
-  http,
-  encodePacked,
-  hexToBigInt,
-  keccak256,
-  getContractAddress,
-} from "viem";
-import { privateKeyToAccount } from "viem/accounts";
-import { gnosis } from "viem/chains";
+export const updateGreeting = async (
+  address: Address,
+  abi: any,
+  func: any,
+  value: string
+) => {
+  "use server";
+  const contract = getContract({
+    address,
+    abi,
+    client: {
+      public: publicClient,
+      wallet: smartAccountClient,
+    },
+    // @ts-ignore
+    nonce: await smartAccountClient.account.getNonce(),
+  });
+
+  return await contract.write[func]([value]);
+};

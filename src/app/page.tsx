@@ -1,64 +1,39 @@
-import { withPageAuthRequired, getSession } from '@auth0/nextjs-auth0';
-import { privateKeyToAccount } from "viem/accounts"
-import { ENTRYPOINT_ADDRESS_V06, createSmartAccountClient, getAccountNonce } from 'permissionless';
-import { signerToSafeSmartAccount } from 'permissionless/accounts';
-import { publicClient, bundlerTransport, bundlerClient, paymasterClient } from '@/lib/pimlico';
-
-import GreeterContract from '@/abis/greeter.json';
-import { greeterDeployment } from '@/lib/deployments';
 import { getContract } from 'viem';
 
-const debugPrivateKey = ''
+import { Flex, Text, Button } from '@radix-ui/themes';
+import { publicClient, smartAccountClient } from '@/lib/pimlico';
+import { greeterDeployment } from '@/lib/deployments';
+import { updateGreeting } from '@/actions';
 
-export default withPageAuthRequired(async function Page() {
-  const signer = privateKeyToAccount(debugPrivateKey);
+import GreeterContract from '@/abis/greeter.json';
+import { Contract } from '@/components/Contract';
 
-  const safeAccount = await signerToSafeSmartAccount(publicClient, {
-    entryPoint: ENTRYPOINT_ADDRESS_V06,
-    signer,
-    safeVersion: "1.4.1",
-  })
+export const runtime = 'edge'
 
-  const smartAccountClient = createSmartAccountClient({
-    account: safeAccount,
-    entryPoint: ENTRYPOINT_ADDRESS_V06,
-    chain: publicClient.chain,
-    bundlerTransport: bundlerTransport,
-    middleware: {
-      gasPrice: async () => (await bundlerClient.getUserOperationGasPrice()).fast,
-      sponsorUserOperation: paymasterClient.sponsorUserOperation,
-    },
-  })
-
-  const nonce = await smartAccountClient.account.getNonce()
-  console.log('nonce', nonce)
-
-  const data = await publicClient.readContract({
+export default async function Page() {
+  const greeting = await publicClient.readContract({
+    // @ts-ignore
     address: greeterDeployment[publicClient.chain.id],
     abi: GreeterContract.abi,
     functionName: 'greet',
   })
 
   const greeterContract = getContract({
+    // @ts-ignore
     address: greeterDeployment[publicClient.chain.id],
     abi: GreeterContract.abi,
     client: {
       public: publicClient,
       wallet: smartAccountClient,
     },
-    nonce
+    nonce: (await smartAccountClient.account.getNonce())
   })
-  const txHash = await greeterContract.write.setGreeting(['Jack'])
 
   return (
     <div className='p-6 space-y-4 text-xs'>
-      <h1>Greet</h1>
-      <div>
-        {data}
-      </div>
-      <div>
-        {txHash}
-      </div>
+      {/* @ts-ignore */}
+      <div>Greeting: {greeting}</div>
+      <Contract name='greeting' value={greeting} action={updateGreeting} func={'setGreeting'} abi={GreeterContract.abi} address={greeterDeployment[publicClient.chain.id]} />
     </div>
   );
-}, { returnTo: '/' })
+}
