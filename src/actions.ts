@@ -1,21 +1,38 @@
 "use server";
 
+import { db } from "@/lib/db";
 import {
-	ENTRYPOINT_ADDRESS_V07,
-	createSmartAccountClient,
+  ENTRYPOINT_ADDRESS_V07,
+  createSmartAccountClient,
 } from "permissionless";
-import { privateKeyToSimpleSmartAccount } from "permissionless/accounts";
-import { http } from "viem";
-import { sepolia } from "viem/chains";
-import { pimlicoClient, pimlicoUrl, publicClient } from "@/lib/pimlico";
-import { Address } from "abitype";
+import {
+  SimpleSmartAccount,
+  privateKeyToSimpleSmartAccount,
+} from "permissionless/accounts";
+import { sepolia, Chain, baseSepolia } from "viem/chains";
+import { publicClient } from "@/lib/pimlico";
+import { Session, getSession } from "@auth0/nextjs-auth0/edge";
+import { NextRequest, NextResponse } from "next/server";
 
-
-export const getAccount = async (privateKey: Address) => {
-    const account = await privateKeyToSimpleSmartAccount(publicClient, {
-        privateKey,
-        factoryAddress: "0x91E60e0613810449d098b0b5Ec8b51A0FE8c8985", // simple account factory
-        entryPoint: ENTRYPOINT_ADDRESS_V07,
-    });
-    return account;
-}
+import { bundlerActions, getAccountNonce } from "permissionless";
+import {
+  pimlicoBundlerActions,
+  pimlicoPaymasterActions,
+} from "permissionless/actions/pimlico";
+import {
+  Address,
+  Client,
+  Hash,
+  Hex,
+  PrivateKeyAccount,
+  createClient,
+  createPublicClient,
+  encodeFunctionData,
+  http,
+  encodePacked,
+  hexToBigInt,
+  keccak256,
+  getContractAddress,
+} from "viem";
+import { privateKeyToAccount } from "viem/accounts";
+import { gnosis } from "viem/chains";
