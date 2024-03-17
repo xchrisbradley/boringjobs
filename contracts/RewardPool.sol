@@ -2,13 +2,13 @@
 pragma solidity ^0.8.0;
 
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
 contract RewardPool is Ownable, ReentrancyGuard {
     IERC20 public token;
 
-    constructor(IERC20 _token) {
+    constructor(IERC20 _token) Ownable(msg.sender) {
         token = _token;
     }
 

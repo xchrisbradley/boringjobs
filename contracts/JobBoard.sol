@@ -21,6 +21,8 @@ contract JobBoard is Ownable {
     event JobApplied(uint256 jobId, address applicant);
     event JobFulfilled(uint256 jobId, address successfulApplicant);
 
+    constructor() Ownable(msg.sender) {}
+
     // Employer posts a job
     function createJob(string calldata description, uint256 reward) external {
         require(bytes(description).length > 0, "Description cannot be empty.");

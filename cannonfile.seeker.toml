@@ -1,0 +1,7 @@
+name = "boringjobs-seeker"
+version = "0.0.1"
+description = "Simple project to verify the functionality of BoringJobs as a Job Seeker"
+keywords = ["boringjobs", "job", "seeker"]
+
+[import.boringjobs]
+source = "boringjobs"
