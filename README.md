@@ -5,6 +5,7 @@
 - **Protocol**: Solidity, Foundry, UseCannon
 - **Frontend**: Viem, Wagmi, React, Next.js 14 + App Router, Tailwind CSS
 - **Authentication**: Auth0, World ID, Safe 4337
+- **Payments**: Safe + Gnosis Pay (Crypto -> Fiat)
 
 ## Live Demonstration
 
