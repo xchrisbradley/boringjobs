@@ -3,7 +3,7 @@
 ## Stack
 
 - **Protocol**: Solidity, Foundry, UseCannon
-- **Frontend**: React, Next.js 14 + App Router, Tailwind CSS
+- **Frontend**: Viem, Wagmi, React, Next.js 14 + App Router, Tailwind CSS
 - **Authentication**: Auth0, World ID
 
 ## Live Demonstration

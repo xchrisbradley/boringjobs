@@ -11,7 +11,9 @@ export const forkedChains = [baseSepolia];
 
 export const wagmiConfig = createConfig({
   chains: [baseSepolia],
+  // @ts-ignore
   transports: {
+    // @ts-ignore
     [baseSepolia]: http(process.env.RPC_ENDPOINT),
   },
 });

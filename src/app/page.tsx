@@ -12,12 +12,14 @@ export const runtime = 'edge'
 
 export default async function Page() {
   const greeting = await publicClient.readContract({
+    // @ts-ignore
     address: greeterDeployment[publicClient.chain.id],
     abi: GreeterContract.abi,
     functionName: 'greet',
   })
 
   const greeterContract = getContract({
+    // @ts-ignore
     address: greeterDeployment[publicClient.chain.id],
     abi: GreeterContract.abi,
     client: {
@@ -29,6 +31,7 @@ export default async function Page() {
 
   return (
     <div className='p-6 space-y-4 text-xs'>
+      {/* @ts-ignore */}
       <div>Greeting: {greeting}</div>
       <Contract name='greeting' value={greeting} action={updateGreeting} func={'setGreeting'} abi={GreeterContract.abi} address={greeterDeployment[publicClient.chain.id]} />
     </div>

@@ -12,11 +12,11 @@ import {
   createPimlicoBundlerClient,
   createPimlicoPaymasterClient,
 } from "permissionless/clients/pimlico";
-import { createClient, createPublicClient, http } from "viem";
+import { Address, createClient, createPublicClient, http } from "viem";
 import { baseSepolia, Chain, foundry } from "viem/chains";
 import { signerToSafeSmartAccount } from "permissionless/accounts";
 
-const debugPrivateKey = `0x${process.env.PRIVATE_KEY}`;
+const debugPrivateKey: Address = `0x${process.env.PRIVATE_KEY}`;
 
 const fork = (chain: Chain) => ({
   ...chain,

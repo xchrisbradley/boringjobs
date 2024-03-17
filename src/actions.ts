@@ -17,6 +17,7 @@ export const updateGreeting = async (
       public: publicClient,
       wallet: smartAccountClient,
     },
+    // @ts-ignore
     nonce: await smartAccountClient.account.getNonce(),
   });
 
