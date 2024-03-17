@@ -9,10 +9,10 @@
     "frontend:run": "next dev",
     "protocol:test": "forge test",
     "protocol:build": "cannon build cannonfile.toml",
-    "protocol:run": "cannon boringjobs --registry-priority local",
+    "protocol:run": "cannon boring-jobs --registry-priority local",
     "protocol:deploy": "source .env.local && cannon build --chain-id $CHAIN_ID --provider-url $RPC_ENDPOINT --private-key $PRIVATE_KEY",
-    "protocol:verify": "source .env.local && cannon verify boringjobs --api-key $ETHERSCAN_API_KEY --chain-id $CHAIN_ID",
-    "protocol:inspect": "cannon inspect boringjobs:latest@main --write-deployments ./src/abis"
+    "protocol:verify": "source .env.local && cannon verify boring-jobs --api-key $ETHERSCAN_API_KEY --chain-id $CHAIN_ID",
+    "protocol:inspect": "cannon inspect boring-jobs:latest@main --write-deployments ./src/abis"
   },
   "dependencies": {
     "@auth0/nextjs-auth0": "^3.5.0",

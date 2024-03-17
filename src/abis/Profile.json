@@ -1,0 +1,100 @@
+{
+  "address": "0x8cecE3171fFeE9119aB814CE819AB1BDf838C6B7",
+  "abi": [
+    {
+      "type": "constructor",
+      "inputs": [
+        {
+          "name": "_name",
+          "type": "string",
+          "internalType": "string"
+        },
+        {
+          "name": "_bio",
+          "type": "string",
+          "internalType": "string"
+        },
+        {
+          "name": "_location",
+          "type": "string",
+          "internalType": "string"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "bio",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "string",
+          "internalType": "string"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "location",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "string",
+          "internalType": "string"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "name",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "string",
+          "internalType": "string"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "updateProfile",
+      "inputs": [
+        {
+          "name": "_name",
+          "type": "string",
+          "internalType": "string"
+        },
+        {
+          "name": "_bio",
+          "type": "string",
+          "internalType": "string"
+        },
+        {
+          "name": "_location",
+          "type": "string",
+          "internalType": "string"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    }
+  ],
+  "constructorArgs": [
+    "Boring Jobs",
+    "This is a boring job profile",
+    "Global"
+  ],
+  "linkedLibraries": {},
+  "deployTxnHash": "0xf0f63d21d1e7ae073ea988d251b4104e8ef93ef5846978b22ec1fa06b8d2608e",
+  "sourceName": "src/Profile.sol",
+  "contractName": "Profile",
+  "deployedOn": "contract.Profile",
+  "gasUsed": 377912,
+  "gasCost": "1000000000"
+}

@@ -18,7 +18,7 @@ import { ReloadIcon } from "@radix-ui/react-icons"
 import Link from "next/link";
 
 const formSchema = z.object({
-  greeting: z.string().min(2).max(50),
+  owner: z.string().min(2).max(50),
 })
 
 type ContractProps = {

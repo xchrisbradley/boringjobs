@@ -1,0 +1,74 @@
+{
+  "address": "0xf04AD0ec07Fa3fED5872783864AdF5421fe26612",
+  "abi": [
+    {
+      "type": "constructor",
+      "inputs": [
+        {
+          "name": "_stakingToken",
+          "type": "address",
+          "internalType": "address"
+        },
+        {
+          "name": "_rewardsToken",
+          "type": "address",
+          "internalType": "address"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "openRequest",
+      "inputs": [
+        {
+          "name": "_name",
+          "type": "string",
+          "internalType": "string"
+        },
+        {
+          "name": "_description",
+          "type": "string",
+          "internalType": "string"
+        },
+        {
+          "name": "_reward",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "requests",
+      "inputs": [
+        {
+          "name": "",
+          "type": "address",
+          "internalType": "address"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "address",
+          "internalType": "address"
+        }
+      ],
+      "stateMutability": "view"
+    }
+  ],
+  "constructorArgs": [
+    "0x4200000000000000000000000000000000000006",
+    "0x4200000000000000000000000000000000000006"
+  ],
+  "linkedLibraries": {},
+  "deployTxnHash": "0x2989ef6e16376ba3e540fb7e702ea526300bf913405736e138d8af73367dba1f",
+  "sourceName": "src/Pool.sol",
+  "contractName": "Pool",
+  "deployedOn": "contract.boring_pool",
+  "gasUsed": 1138499,
+  "gasCost": "1000000000"
+}

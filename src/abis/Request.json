@@ -1,0 +1,129 @@
+{
+  "address": "0xBeDD53ade635d3116d6310E040bC147f6101C6a5",
+  "abi": [
+    {
+      "type": "constructor",
+      "inputs": [
+        {
+          "name": "_name",
+          "type": "string",
+          "internalType": "string"
+        },
+        {
+          "name": "_description",
+          "type": "string",
+          "internalType": "string"
+        },
+        {
+          "name": "_fulfilmentReward",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "_employer",
+          "type": "address",
+          "internalType": "address"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "complete",
+      "inputs": [],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "description",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "string",
+          "internalType": "string"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "employee",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "address",
+          "internalType": "address"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "employer",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "address",
+          "internalType": "address"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "fulfilmentReward",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "isCompleted",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool",
+          "internalType": "bool"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "name",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "string",
+          "internalType": "string"
+        }
+      ],
+      "stateMutability": "view"
+    }
+  ],
+  "constructorArgs": [
+    "Job Name",
+    "Job Description",
+    100,
+    "0xf04AD0ec07Fa3fED5872783864AdF5421fe26612"
+  ],
+  "linkedLibraries": {},
+  "deployTxnHash": "0x5512eac8754d8ffc3a700be56aca125b80fdae8f2fd41fe80821efb344a1a138",
+  "sourceName": "src/Request.sol",
+  "contractName": "Request",
+  "deployedOn": "contract.Request",
+  "gasUsed": 325700,
+  "gasCost": "884487492"
+}

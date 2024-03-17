@@ -1,0 +1,52 @@
+{
+  "address": "0xD3a34E97b0F4E9c1E52844B43fCde31Ec9F3def3",
+  "abi": [
+    {
+      "type": "constructor",
+      "inputs": [
+        {
+          "name": "_greeting",
+          "type": "string",
+          "internalType": "string"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "greet",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "string",
+          "internalType": "string"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "greeting",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "string",
+          "internalType": "string"
+        }
+      ],
+      "stateMutability": "view"
+    }
+  ],
+  "constructorArgs": [
+    "Boring Jobs"
+  ],
+  "linkedLibraries": {},
+  "deployTxnHash": "0x49894ed12a10b085d286cbbd681228f34ba3983cbd6a876c2f20909e3fad042b",
+  "sourceName": "src/BoringJobs.sol",
+  "contractName": "BoringJobs",
+  "deployedOn": "contract.boringjobs",
+  "gasUsed": 210547,
+  "gasCost": "1000000000"
+}

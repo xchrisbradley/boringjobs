@@ -1,0 +1,149 @@
+{
+  "address": "0xdcA22D1503eC35eBf9F055e66bF77C69654C74a1",
+  "abi": [
+    {
+      "type": "constructor",
+      "inputs": [
+        {
+          "name": "_greeting",
+          "type": "string",
+          "internalType": "string"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "changeCloneGreeting",
+      "inputs": [
+        {
+          "name": "a",
+          "type": "address",
+          "internalType": "address"
+        },
+        {
+          "name": "_greeting",
+          "type": "string",
+          "internalType": "string"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "doCloning",
+      "inputs": [],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "doCloningIteratively",
+      "inputs": [
+        {
+          "name": "clones",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "greet",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "string",
+          "internalType": "string"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "greeting",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "string",
+          "internalType": "string"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "setGreeting",
+      "inputs": [
+        {
+          "name": "_greeting",
+          "type": "string",
+          "internalType": "string"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "event",
+      "name": "NewClonedGreeter",
+      "inputs": [
+        {
+          "name": "cloned",
+          "type": "address",
+          "indexed": false,
+          "internalType": "address"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "NewGreetingAdded",
+      "inputs": [
+        {
+          "name": "newGreeting",
+          "type": "string",
+          "indexed": false,
+          "internalType": "string"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "OldGreetingRemoved",
+      "inputs": [
+        {
+          "name": "oldGreeting",
+          "type": "string",
+          "indexed": false,
+          "internalType": "string"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "error",
+      "name": "BadGreeting",
+      "inputs": [
+        {
+          "name": "",
+          "type": "string",
+          "internalType": "string"
+        }
+      ]
+    }
+  ],
+  "deployTxnHash": "",
+  "sourceName": "src/Greeter.sol",
+  "contractName": "Greeter",
+  "deployedOn": "invoke.clone_iterative",
+  "gasUsed": 0,
+  "gasCost": "0"
+}

@@ -1,4 +1,4 @@
-name = "boringjobs"
+name = "boring-jobs"
 version = "<%= package.version %>"
 description = "On-Chain Decentralized Job Board"
 keywords = [
