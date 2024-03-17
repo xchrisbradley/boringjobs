@@ -1,38 +1,58 @@
-import { ENTRYPOINT_ADDRESS_V06, bundlerActions } from "permissionless";
+import {
+  ENTRYPOINT_ADDRESS_V07,
+  ENTRYPOINT_ADDRESS_V06,
+  bundlerActions,
+} from "permissionless";
 import {
   pimlicoBundlerActions,
   pimlicoPaymasterActions,
 } from "permissionless/actions/pimlico";
+import {
+  createPimlicoBundlerClient,
+  createPimlicoPaymasterClient,
+} from "permissionless/clients/pimlico";
 import { createClient, createPublicClient, http } from "viem";
-import { baseSepolia } from "viem/chains";
+import { baseSepolia, Chain, foundry } from "viem/chains";
 
-export const rpcURL = "https://rpc.ankr.com/base_sepolia";
-
-export const publicClient = createPublicClient({
-  transport: http(rpcURL),
-  chain: baseSepolia,
+const fork = (chain: Chain) => ({
+  ...chain,
+  name: `${chain.name} Fork`,
+  rpcUrls: foundry.rpcUrls,
 });
 
-const PIMLICO_API_V1 = `https://api.pimlico.io/v1/base-sepolia/rpc?apikey=${process.env.PIMLICO_API_KEY}`;
+export const forkedChains = [baseSepolia].map(fork);
 
-export const bundlerClient = createClient({
-  transport: http(PIMLICO_API_V1),
-  chain: baseSepolia,
-})
-  .extend(bundlerActions(ENTRYPOINT_ADDRESS_V06))
-  .extend(pimlicoBundlerActions(ENTRYPOINT_ADDRESS_V06));
+export const publicClient = createPublicClient({
+  transport: http("https://rpc.ankr.com/base_sepolia"),
+  chain: forkedChains[0],
+});
 
-const PIMLICO_API_V2 = `https://api.pimlico.io/v2/base-sepolia/rpc?apikey=${process.env.PIMLICO_API_KEY}`;
+const baseUrl = "https://api.pimlico.io";
+export const pimlicoUrl = `${baseUrl}/2/base-sepolia/rpc?apikey=${process.env.PIMLICO_API_KEY}`;
+export const bundlerTransport = http(
+  `${baseUrl}/v1/base-sepolia/rpc?apikey=${process.env.PIMLICO_API_KEY}`
+);
+export const paymasterTransport = http(
+  `${baseUrl}/v2/base-sepolia/rpc?apikey=${process.env.PIMLICO_API_KEY}`
+);
 
-export const pimlicoPaymasterClient = createClient({
-  transport: http(PIMLICO_API_V2),
-  chain: baseSepolia,
-}).extend(pimlicoPaymasterActions(ENTRYPOINT_ADDRESS_V06));
+export const bundlerClient = createPimlicoBundlerClient({
+  transport: bundlerTransport,
+  entryPoint: ENTRYPOINT_ADDRESS_V06,
+  chain: forkedChains[0],
+});
+
+export const gasPrices = await bundlerClient.getUserOperationGasPrice();
 
 export const pimlicoClient = createClient({
-  transport: http(PIMLICO_API_V2),
-  chain: baseSepolia,
+  transport: http(pimlicoUrl),
 })
   .extend(bundlerActions(ENTRYPOINT_ADDRESS_V06))
   .extend(pimlicoBundlerActions(ENTRYPOINT_ADDRESS_V06))
   .extend(pimlicoPaymasterActions(ENTRYPOINT_ADDRESS_V06));
+
+export const paymasterClient = createPimlicoPaymasterClient({
+  transport: paymasterTransport,
+  entryPoint: ENTRYPOINT_ADDRESS_V06,
+  chain: forkedChains[0],
+});

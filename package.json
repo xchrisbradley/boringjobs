@@ -11,7 +11,8 @@
     "protocol:build": "cannon build cannonfile.toml && cannon build cannonfile.consumer.toml",
     "protocol:run": "cannon greeter --registry-priority local",
     "protocol:deploy": "source .env.local && cannon build --chain-id $CHAIN_ID --provider-url $RPC_ENDPOINT --private-key $PRIVATE_KEY",
-    "protocol:verify": "source .env.local && cannon verify greeter-foundry --api-key $ETHERSCAN_API_KEY --chain-id $CHAIN_ID"
+    "protocol:verify": "source .env.local && cannon verify greeter-foundry --api-key $ETHERSCAN_API_KEY --chain-id $CHAIN_ID",
+    "protocol:inspect": "cannon inspect greeter-foundry --write-deployments ./src/abis"
   },
   "dependencies": {
     "@auth0/nextjs-auth0": "^3.5.0",

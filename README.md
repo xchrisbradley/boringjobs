@@ -57,10 +57,11 @@ Execute the following commands within your development environment to engage wit
 - `pnpm protocol:run`: Launch a local instance of the protocol for testing and development purposes.
 - `pnpm protocol:deploy`: Deploy the protocol onto the blockchain network.
 - `pnpm protocol:verify`: Verify the protocol implementation against blockchain network standards.
+- `protocol:inspect`: Inspect the protocol's deployment data and write it to a `./src/abis` directory.
 
 ## Frontend Development Workflow
 
 Execute the following commands within your development environment to engage with the frontend:
 
 - `pnpm frontend:build`: Compile the frontend to prepare for deployment.
-- `pnpm frontend:run`: Launch a local instance of the frontend for testing and development purposes. **This command will also require the protocol to be running locally.**
+- `pnpm frontend:run`: Launch a local instance of the frontend for testing and development purposes. **This command will also require the protocol to be running locally and inspected.**

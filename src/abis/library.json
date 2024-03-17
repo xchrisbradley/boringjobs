@@ -1,0 +1,20 @@
+{
+  "address": "0x65d70957a971f1A5d8227eb7b51ffa1Dd5F982bC",
+  "abi": [
+    {
+      "type": "function",
+      "name": "testLibraryFunction",
+      "inputs": [],
+      "outputs": [],
+      "stateMutability": "view"
+    }
+  ],
+  "constructorArgs": [],
+  "linkedLibraries": {},
+  "deployTxnHash": "0x016e6b127abbbe8a3382a20623f2151b936ce01839731e2bba49134b2d70941d",
+  "sourceName": "contracts/Library.sol",
+  "contractName": "Library",
+  "deployedOn": "contract.library",
+  "gasUsed": 131504,
+  "gasCost": "4000000000"
+}
