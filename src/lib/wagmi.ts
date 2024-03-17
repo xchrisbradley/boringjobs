@@ -7,7 +7,7 @@ const fork = (chain: Chain) => ({
   rpcUrls: foundry.rpcUrls,
 });
 
-export const forkedChains = [baseSepolia].map(fork);
+export const forkedChains = [baseSepolia];
 
 export const wagmiConfig = createConfig({
   chains: [baseSepolia],
