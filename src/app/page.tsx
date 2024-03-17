@@ -28,21 +28,9 @@ export default async function Page() {
   })
 
   return (
-    <Flex direction="column" gap="2">
-      <Text>Greeting: {greeting}</Text>
-      <Contract name='greeting' value={greeting} action={updateGreeting} />
-    </Flex>
-    // <div className='p-6 space-y-4 text-xs'>
-    //   {/* <ContractReadOnly name='greeting' value={greeting} /> */}
-    //   {/* <Contract name='greeting' value={greeting} /> */}
-    //   {/* <Profile contract={greeterDeployment[publicClient.chain.id]} /> */}
-    //   {/* <Profile account={smartAccountClient.account.address} /> */}
-    //   {/* <h1>Greeter Contract</h1>
-    //   <p>Greeter Contract address: {greeterDeployment[publicClient.chain.id]}</p>
-    //   <p>Greeter Contract Greeting: {data}</p>
-    //   <pre>
-    //     {JSON.stringify(smartAccountClient, null, 2)}
-    //   </pre> */}
-    // </div>
+    <div className='p-6 space-y-4 text-xs'>
+      <div>Greeting: {greeting}</div>
+      <Contract name='greeting' value={greeting} action={updateGreeting} func={'setGreeting'} abi={GreeterContract.abi} address={greeterDeployment[publicClient.chain.id]} />
+    </div>
   );
 }

@@ -13,7 +13,9 @@ import {
   FormMessage,
 } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { ReloadIcon } from "@radix-ui/react-icons"
+import Link from "next/link";
 
 const formSchema = z.object({
   greeting: z.string().min(2).max(50),
@@ -22,39 +24,32 @@ const formSchema = z.object({
 type ContractProps = {
   name: string;
   value: any;
+  address: string;
+  abi: any;
+  func: any;
   action: any
 }
 
-export function ContractReadOnly({ name, value }: ContractProps) {
-  return (
-    <div>
-      <h1>{name}</h1>
-      <p>{value}</p>
-    </div>
-  )
-}
-
-export function Contract({ name, value, action }: ContractProps) {
+export function Contract({ name, value, action, address, abi, func }: ContractProps) {
   const [tx, setTx] = useState(null)
+  const [isLoading, setIsLoading] = useState(false)
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: {
-      greeting: "",
-    },
+    defaultValues: {},
   })
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    // const txHash = await greeterContract.write.setGreeting([values[name]])
-    // console.log(txHash)
-    // setTx(txHash)
-    console.log(values)
+    setIsLoading(true)
+    const tx = await action(
+      address,
+      abi,
+      func,
+      values[name as keyof typeof values]
+    );
+    setTx(tx)
+    setIsLoading(false)
   }
-
-
-
-  // lazy load account
-  // const wallet = smartAccountClient
 
   return (
     <Form {...form}>
@@ -66,18 +61,24 @@ export function Contract({ name, value, action }: ContractProps) {
             <FormItem>
               <FormLabel>{name}</FormLabel>
               <FormControl>
-                <Input placeholder={value} {...field} />
+                <Input placeholder={value} {...field} disabled={isLoading} />
               </FormControl>
-              {tx && <FormDescription>Transaction: {tx}</FormDescription>}
+              {tx && (
+                <FormDescription>
+                  <Link href={`https://sepolia.basescan.org/tx/${tx}`} target="_blank">View transaction</Link>
+                </FormDescription>
+              )}
               <FormMessage />
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        {isLoading ? (
+          <Button disabled>
+            <ReloadIcon className="mr-2 h-4 w-4 animate-spin" />
+            Please wait
+          </Button>
+        ) : (<Button type="submit">Submit</Button>)}
       </form>
     </Form>
-    // <pre>
-    //   {JSON.stringify(result, null, 2)}
-    // </pre>
   );
 }
